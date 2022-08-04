@@ -1,0 +1,17 @@
+---
+- get_facts:
+    os_version: 4.17
+    model: CSR1000V
+- get_interfaces_ip:
+    Loopback100:
+      ipv4:
+        10.10.10.10:
+          prefix_length: 32
+- ping:
+    _name: PING_Loopback
+    _kwargs:
+      destination: 1.2.3.4
+      source: 1.2.3.4
+    success:
+      packet_loss: 0
+    _mode: strict
